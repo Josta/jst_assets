@@ -15,7 +15,7 @@ JST Assets: Advanced asset management
 :Repository:
       Github `josta/jst_assets <https://github.com/josta/jst_assets>`__
 
-:Tags: TYPO3, Extension, Asset Management
+:Tags: TYPO3, Extension, Asset Management, SASS, LESS, CoffeeScript, Icons
 
 **Overview:**
 
@@ -226,7 +226,7 @@ Depending on how you configured the Icon pipeline, the way to use icons will dif
 | **SVG Symbols (external)** | ``<svg class="icon icon-x more-classes"><use xlink:href="/typo3temp/jst_assets/jst_assets_icons.svg#icon-x"></use></svg>`` |
 +----------------------------+----------------------------------------------------------------------------------------------------------------------------+
 
-There is a IconViewHelper that you can use which will always output the correct code depending on your configuration:
+There is an IconViewHelper that you can use which will always output the correct code depending on your configuration:
 
 ::
 
@@ -308,7 +308,7 @@ If you use SASS and want to use the ``icon-color`` mixin without depending on ``
 ::
 
 	@if not (mixin-exists('icon-color')) {
-		@mixin icon-color($color) {&:before{color: $color;}}
+		@mixin icon-color($color) {&.icon,.icon{fill: $color;}}
 	}
 
 Library Inclusion
@@ -385,7 +385,7 @@ All configuration either happens in the ``Extension Manager`` or in the ``TypoSc
 
 ``scss.variables``
 ~~~~~~~~~~~~~~~~~~
-    Array of **SCSS variables** to be included before precompiling any ``SCSS`` content.
+    Array of **SCSS variables** to be included before precompiling any ``SASS`` content.
     Works like ``less.variables``. Of course, references have to be to ``SASS`` functions and variables instead.
 
 
@@ -407,7 +407,7 @@ All configuration either happens in the ``Extension Manager`` or in the ``TypoSc
 
 ``icons``
 ~~~~~~~~~
-    Array of icon files. The array key will be the icon name. Only SVG icons are permitted.
+    Array of icon folders. Only SVG icons will be processed.
 
     ::
 
@@ -428,7 +428,8 @@ Further Considerations
 
 A lot of the functionality provided by this extension depends on the included precompiler PHP libraries.
 Those libraries may not be 100% compatible with the corresponding ``Node.js`` modules. I will try to always
-include up-to-date versions. If I miss one, please give me a hint.
+include up-to-date versions. If I miss one, please give me a hint. The used CoffeScript library unfortunately appears to not be
+maintained any longer, so new language features beyond CoffeScript 1.3.1 probebly won't ever be supported by this extension.
 
 Also, the important ``Node.js`` tools ``coffeescript-concat`` and ``autoprefixer`` have so far not
 been ported to native PHP. For those, ``JST Assets`` offers rudimentary replacements of my own making that in no way
