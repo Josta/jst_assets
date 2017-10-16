@@ -1,0 +1,10 @@
+page.includeCSSLibs {
+	bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+	bootstrap.forceOnTop = 1
+	bootstrap.external = 1
+}
+page.includeJSFooterlibs {
+	bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
+	bootstrap.forceOnTop = 1
+	bootstrap.external = 1
+}

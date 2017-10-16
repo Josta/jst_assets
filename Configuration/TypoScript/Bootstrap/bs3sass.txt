@@ -1,0 +1,8 @@
+page.includeCSSLibs {
+	bootstrap = EXT:jst_assets/Resources/Public/bootstrap3.scss
+	bootstrap.forceOnTop = 1
+}
+page.includeJSFooterlibs {
+	bootstrap = EXT:jst_assets/Resources/Public/bootstrap3.coffee
+	bootstrap.forceOnTop = 1
+}

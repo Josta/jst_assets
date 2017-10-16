@@ -1,0 +1,10 @@
+# jQueryAnywhere (see http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/)
+
+page.includeJSLibs {
+	jquery_preload = EXT:jst_assets/Resources/Public/jquery-preload.js
+	jquery_preload.forceOnTop = 1
+}
+page.includeJSFooterlibs {
+	jquery_postload = EXT:jst_assets/Resources/Public/jquery-postload.js
+	jquery_postload.forceOnTop = 1
+}

@@ -1,0 +1,10 @@
+page.includeCSSLibs {
+	bootstrap = EXT:jst_assets/Resources/Public/Vendor/bootstrap-4.0.0-beta-dist/css/bootstrap.min.css
+	bootstrap.forceOnTop = 1
+}
+page.includeJSFooterlibs {
+	bootstrap = EXT:jst_assets/Resources/Public/Vendor/bootstrap-4.0.0-beta-dist/js/bootstrap.min.js
+	bootstrap.forceOnTop = 1
+	popper = EXT:jst_assets/Resources/Public/Vendor/popper.js/popper-1.11.0.min.js
+	popper.forceOnTop = 1
+}

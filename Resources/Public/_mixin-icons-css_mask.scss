@@ -1,0 +1,5 @@
+@mixin icon-color($color) {
+	&:before {
+		background-color: $color;
+	}	
+}

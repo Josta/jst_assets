@@ -1,0 +1,40 @@
+.icon:before {	
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	background: black;
+	-webkit-mask-position: center center;
+	mask-position: center center;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+}
+.icons-s:before {
+	width: 5mm;
+	height: 5mm;
+}
+.icons-m:before {
+	width: 7mm;
+	height: 7mm;
+}
+.icons-l:before {
+	width: 9mm;
+	height: 9mm;
+}
+.icons-xl:before {
+	width: 13mm;
+	height: 13mm;
+}
+.icons-xxl:before {
+	width: 20mm;
+	height: 20mm;
+}
+.icons-black:before {
+	background: #000;
+}
+.icons-white:before {
+	background: #fff;
+}

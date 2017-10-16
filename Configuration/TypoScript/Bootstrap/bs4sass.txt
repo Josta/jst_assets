@@ -1,0 +1,11 @@
+page.includeCSSLibs {
+	bootstrap = EXT:jst_assets/Resources/Public/bootstrap4.scss
+	bootstrap.forceOnTop = 1
+	bootstrap.allWrap = autoprefix
+}
+page.includeJSFooterlibs {
+	bootstrap = EXT:jst_assets/Resources/Public/bootstrap4.coffee
+	bootstrap.forceOnTop = 1
+	popper = EXT:jst_assets/Resources/Public/Vendor/popper.js/popper-1.11.0.min.js
+	popper.forceOnTop = 1
+}

@@ -1,0 +1,32 @@
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+}
+.icons-s {
+	width: 5mm;
+	height: 5mm;
+}
+.icons-m {
+	width: 7mm;
+	height: 7mm;
+}
+.icons-l {
+	width: 9mm;
+	height: 9mm;
+}
+.icons-xl {
+	width: 13mm;
+	height: 13mm;
+}
+.icons-xxl {
+	width: 20mm;
+	height: 20mm;
+}
+.icons-black {
+	fill: #000;
+}
+.icons-white {
+	fill: #fff;
+}

@@ -1,0 +1,36 @@
+# This setup should work with either of bootstrap_package and fluid_styled_content
+
+lib.contentElement.layoutRootPaths {
+	# register modified layout that uses "lib.content.class"
+    65 = EXT:jst_assets/Resources/Private/Layouts/fluid_styled_content/
+}
+
+# Inject Page CSS class
+lib.page.class = COA
+lib.page.class {
+	65 = TEXT
+	65.data = page:jst_assets_class
+	65.noTrimWrap = | ||
+}
+
+# Inject Content Element CSS classes
+lib.content.class = COA
+lib.content.class {
+	65 = TEXT
+	65.data = field:jst_assets_class
+	65.noTrimWrap = | ||
+	stdWrap.trim = 1
+}
+
+# bootstrap_package shim
+page.bodyTag >
+page.bodyTagCObject = COA
+page.bodyTagCObject {
+	10 = TEXT
+	10.data = TSFE:id
+	10.noTrimWrap =  | id="p|"|
+	20 =< lib.page.class
+	20.stdWrap.trim = 1
+	20.stdWrap.noTrimWrap = | class="|"|
+	wrap = <body|>
+}

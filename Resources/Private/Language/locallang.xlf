@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" date="2012-10-18T17:55:17Z" product-name="jst_assets">
+        <header/>
+        <body>
+			<trans-unit id="tt_content.tabs.assets">
+				<source>CSS/Script</source>
+			</trans-unit>
+			<trans-unit id="tt_content.palettes.assets">
+				<source>Assets</source>
+			</trans-unit>
+			<trans-unit id="pages.tabs.assets">
+				<source>CSS/Script</source>
+			</trans-unit>
+			<trans-unit id="pages.palettes.assets">
+				<source>Assets</source>
+			</trans-unit>
+			
+			<trans-unit id="field.css_class">
+				<source>CSS Class</source>
+			</trans-unit>
+			<trans-unit id="field.css_class_nav">
+				<source>CSS Class for Nav Entry</source>
+			</trans-unit>
+			<trans-unit id="field.custom_scss">
+				<source>SCSS</source>
+			</trans-unit>
+			<trans-unit id="field.custom_less">
+				<source>LESS</source>
+			</trans-unit>
+			<trans-unit id="field.custom_css">
+				<source>CSS</source>
+			</trans-unit>
+			<trans-unit id="field.custom_coffee">
+				<source>CoffeeScript</source>
+			</trans-unit>
+			<trans-unit id="field.custom_js">
+				<source>Javascript</source>
+			</trans-unit>
+		</body>
+	</file>	
+</xliff>

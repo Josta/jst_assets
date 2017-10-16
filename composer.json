@@ -1,0 +1,23 @@
+{  
+	"name": "josta/jst_assets",
+    "type": "typo3-cms-extension",
+    "description": "Advanced asset management for TYPO3: SASS/LESS, CoffeeScript, Icons and Snippets",
+    "homepage": "https://github.com/josta/jst_assets",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josua Stabenow",
+            "email": "josua.stabenow@gmx.de"
+        }
+    ],
+	"preferred-install": "dist",
+    "support": {
+        "issues": "https://github.com/josta/jst_assets/issues"
+	},
+    "require": {
+        "php": ">=7.0.0",
+		"coffeescript/coffeescript": ">=1.3.0",
+		"oyejorge/less.php": ">=1.7.0",
+		"leafo/scssphp": ">=0.7.1"
+    }
+}

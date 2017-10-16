@@ -1,0 +1,13 @@
+page.includeCSSLibs {
+	bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css
+	bootstrap.forceOnTop = 1
+	bootstrap.external = 1
+}
+page.includeJSFooterlibs {
+	bootstrap = https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js
+	bootstrap.forceOnTop = 1
+	bootstrap.external = 1
+	popper = https://cdn.jsdelivr.net/npm/popper.js@1.12.5/dist/popper.min.js
+	popper.external = 1
+	popper.forceOnTop = 1
+}

@@ -1,0 +1,10 @@
+page.includeCSSLibs {
+	bootstrap = EXT:jst_assets/Resources/Public/Vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css
+	bootstrap.forceOnTop = 1
+	bootstrap_theme = EXT:jst_assets/Resources/Public/Vendor/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css
+	bootstrap_theme.forceOnTop = 1
+}
+page.includeJSFooterlibs {
+	bootstrap = EXT:jst_assets/Resources/Public/Vendor/bootstrap-3.3.7-dist/js/bootstrap.min.js
+	bootstrap.forceOnTop = 1
+}

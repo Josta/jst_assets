@@ -1,0 +1,47 @@
+# cat=pipelines/enable; type=boolean; label=Precompile Standard assets: Compiles SCSS/LESS/CoffeeScript assets in the standard asset pipeline
+precompile_standard_assets = 1
+
+# cat=pipelines/enable; type=boolean; label=Precompile VHS assets: Compiles SCSS/LESS/CoffeeScript assets in the VHS asset pipeline
+precompile_vhs_assets = 1
+
+# cat=pipelines/enable; type=boolean; label=CoffeeScript Includes: Include other .coffee or .js files with the special function "~include '...'"
+coffee_includes = 1
+
+# cat=pipelines/enable; type=options[repurpose allWrap property=allwrap,always autoprefix=always,disabled=0]; label=LESS/SASS autoprefixing: (allWrap: set the TS property allWrap on your asset to "autoprefix" to enable autoprefixing)
+autoprefix_mode = allwrap
+
+# cat=pipelines/enable; type=options[CSS backgrounds=css_bg,CSS masks=css_mask,CSS mask/char mix (experimental!)=css_maskfont,SVG Symbols=svg_symbols,disabled=0]; label=Icon Pipeline: Set the icon sprite mode 
+icon_sprite_type = css_bg
+
+# cat=pipelines/enable; type=options[External file=file,Inline=inline,Inline (only used icons)=inline_used]; label=Icon Sprite delivery: File is good for caching, inline for styling. ("Only used icons" option will only work if icons are inserted exclusively using the Icon ViewHelper.)
+icon_sprite_delivery = file
+
+
+# cat=snippets/enable; type=boolean; label=Snippets for Pages: Define inline scripts and styles in any page record
+page_snippets = 1
+
+# cat=snippets/enable; type=boolean; label=Snippets for Content: Define inline scripts and styles in any content record
+content_snippets = 1
+
+# cat=snippets/enable; type=options[SCSS=scss,LESS=less,CSS (no scoping!)=css,disabled=0]; label=Style Snippet Mode
+style_snippet_mode = scss
+
+# cat=snippets/enable; type=options[CoffeeScript=coffee,JavaScript=js,disabled=0]; label=Script Snippet Mode
+script_snippet_mode = coffee
+
+# cat=snippets/enable; type=boolean; label=Wrap scripts: Wraps each script snippet in a jQuery ready event handler
+wrap_script_snippets = 1
+
+# cat=snippets/enable; type=boolean; label=Wrap styles: Wraps each style snippet in a parent page/content ID scope
+wrap_style_snippets = 1
+
+
+
+# cat=libraries/enable; type=options[jQuery 1.12.4=jquery-1.12.4.min.js,jQuery 3.2.1=jquery-3.2.1.min.js,jQuery 3.2.1 (slim)=jquery-3.2.1.slim.min.js,disabled=0]; label=Include jQuery
+jquery = jquery3
+
+# cat=libraries/enable; type=options[Header=header,Footer=footer,Footer with jQueryAnywhere hack=footerhack]; label=jQuery placement: the jQueryAnywhere hack allows to use jQuery ready event registration even before jQuery is loaded
+jquery_placement = footerhack
+
+# cat=libraries/enable; type=options[Bootstrap 3 (precompiled)=bs3,Bootstrap 3 (SASS)=bs3sass,Bootstrap 3 (CDN)=bs3cdn,Bootstrap 4 (precompiled)=bs4,Bootstrap 4 (SASS)=bs4sass,Bootstrap 4 (CDN)=bs4cdn,disabled=0]; label=Include Twitter Bootstrap
+bootstrap = bs3sass

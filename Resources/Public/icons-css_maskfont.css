@@ -1,0 +1,36 @@
+.icon:before {
+	content: "\2B1B"; /*big black square*/
+	display: inline-block;
+	-webkit-mask-position: center center;
+	mask-position: center center;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 66%;
+	mask-size: 66%;
+	transform: scale(1.3);
+	vertical-align: middle;
+	position: relative;
+	bottom: 0.15em;
+	font-size: 1em;
+}
+.icons-s:before {
+	font-size: 16px;
+}
+.icons-m:before {
+	font-size: 20px;
+}
+.icons-l:before {
+	font-size: 25px;
+}
+.icons-xl:before {
+	font-size: 30px;
+}
+.icons-xxl:before {
+	font-size: 40px;
+}
+.icons-black:before {
+	color: #00f;
+}
+.icons-white:before {
+	color: #ff0;
+}
