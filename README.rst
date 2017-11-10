@@ -1,3 +1,4 @@
+*This extension is currently work-in-progress and not yet made available through TER.*
 
 =====================================
 JST Assets: Advanced asset management
@@ -73,9 +74,9 @@ The extension requires
 
 The used precompilers are all native PHP and are shipped with the extension:
 
-- ``coffeescript-php``
-- ``scssphp``
-- ``less.php``
+- ``coffeescript-php`` (https://github.com/phpcoffee/coffeescript)
+- ``scssphp`` (https://github.com/leafo/scssphp)
+- ``less.php`` (https://github.com/oyejorge/less.php)
 
 | ``JST Assets`` may be incompatible to or require ``TypoScript`` tweaking for some extensions.
 | In particular, any extension is potentially incompatible that:
@@ -94,7 +95,7 @@ Installation
 ============
 
 1. Install the extension from TER (or Github)
-2. When installing from Github, you may have to run Composer to build the vendor directory.
+2. If you're installing from Github master, you will have to run ``composer install`` to build the vendor directory.
 3. Configure the extension in the Extension Manager
 
 
