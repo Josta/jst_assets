@@ -118,15 +118,15 @@ class Lexer
   static $TRAILING_SPACES   = '/\s+$/';
   static $WHITESPACE        = '/^[^\n\S]+/';
 
-  static $BOOL              = array('TRUE', 'FALSE', 'NULL', 'UNDEFINED');
+  static $BOOL              = array('TRUE', 'FALSE');
   static $CALLABLE          = array('IDENTIFIER', 'STRING', 'REGEX', ')', ']', '}', '?', '::', '@', 'THIS', 'SUPER');
   static $COMPARE           = array('==', '!=', '<', '>', '<=', '>=');
   static $COMPOUND_ASSIGN   = array('-=', '+=', '/=', '*=', '%=', '||=', '&&=', '?=', '<<=', '>>=', '>>>=', '&=', '^=', '|=' );
-  static $INDEXABLE         = array('NUMBER', 'BOOL');
+  static $INDEXABLE         = array('NUMBER', 'BOOL', 'NULL', 'UNDEFINED');
   static $LINE_BREAK        = array('INDENT', 'OUTDENT', 'TERMINATOR');
   static $LOGIC             = array('&&', '||', '&', '|', '^');
   static $MATH              = array('*', '/', '%');
-  static $NOT_REGEX         = array('NUMBER', 'REGEX', 'BOOL', '++', '--', ']');
+  static $NOT_REGEX         = array('NUMBER', 'REGEX', 'BOOL', 'NULL', 'UNDEFINED', '++', '--', ']');
   static $NOT_SPACED_REGEX  = array(')', '}', 'THIS', 'IDENTIFIER', 'STRING');
   static $RELATION          = array('IN', 'OF', 'INSTANCEOF');
   static $SHIFT             = array('<<', '>>', '>>>');
@@ -615,8 +615,10 @@ class Lexer
         'UNARY'     => array('!'),
         'COMPARE'   => array('==', '!='),
         'LOGIC'     => array('&&', '||'),
-        'BOOL'      => array('true', 'false', 'null', 'undefined'),
-        'STATEMENT' => array('break', 'continue')
+        'BOOL'      => array('true', 'false'),
+        'STATEMENT' => array('break', 'continue'),
+        'NULL'      => array('null'),
+        'UNDEFINED' => array('undefined'),
       );
 
       foreach ($map as $k => $v)
@@ -1063,7 +1065,7 @@ class Lexer
     {
       if ($wanted !== 'OUTDENT')
       {
-        $this->error("unmateched $tag");
+        $this->error("unmatched $tag");
       }
 
       $this->indent -= $size = last($this->indents);
@@ -1094,7 +1096,7 @@ class Lexer
 
     if ($prev)
     {
-      if (in_array($prev[0], t((isset($prev['spaced']) && $prev['spaced']) ? 
+      if (in_array($prev[0], t((isset($prev['spaced']) && $prev['spaced']) ?
         self::$NOT_REGEX : self::$NOT_SPACED_REGEX)))
       {
         return 0;
@@ -1284,9 +1286,9 @@ class Lexer
 
   function tokenize()
   {
-    while ( ($this->chunk = substr($this->code, $this->index)) !== FALSE )
+    while ( ($this->chunk = (string) substr($this->code, $this->index)) !== '' )
     {
-      $types = array('identifier', 'comment', 'whitespace', 'line', 'heredoc', 
+      $types = array('identifier', 'comment', 'whitespace', 'line', 'heredoc',
         'string', 'number', 'regex', 'js', 'literal');
 
       foreach ($types as $type)

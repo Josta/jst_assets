@@ -27,7 +27,7 @@ class Rewriter
 
   static $IMPLICIT_CALL = array(
     'IDENTIFIER', 'NUMBER', 'STRING', 'JS', 'REGEX', 'NEW', 'PARAM_START', 'CLASS',
-    'IF', 'TRY', 'SWITCH', 'THIS', 'BOOL', 'UNARY', 'SUPER',
+    'IF', 'TRY', 'SWITCH', 'THIS', 'BOOL', 'NULL', 'UNDEFINED', 'UNARY', 'SUPER',
     '@', '->', '=>', '[', '(', '{', '--', '++'
   );
 
@@ -205,7 +205,7 @@ class Rewriter
         return 4;
       }
 
-      if (in_array($tag, t(Rewriter::$SINGLE_LINERS)) && $self->tag($i + 1) !== t('INDENT') && 
+      if (in_array($tag, t(Rewriter::$SINGLE_LINERS)) && $self->tag($i + 1) !== t('INDENT') &&
         ! ($tag === t('ELSE') && $self->tag($i + 1) === t('IF')))
       {
         $starter = $tag;
@@ -314,9 +314,9 @@ class Rewriter
         return 1;
       }
 
-      if ( ! ($call_object || ($prev && (isset($prev['spaced']) && $prev['spaced'])) && 
+      if ( ! ($call_object || ($prev && (isset($prev['spaced']) && $prev['spaced'])) &&
         ( (isset($prev['call']) && $prev['call']) || in_array($prev[0], t(Rewriter::$IMPLICIT_FUNC)) ) &&
-        ( in_array($tag, t(Rewriter::$IMPLICIT_CALL)) || ! ( (isset($token['spaced']) && $token['spaced']) || 
+        ( in_array($tag, t(Rewriter::$IMPLICIT_CALL)) || ! ( (isset($token['spaced']) && $token['spaced']) ||
           (isset($token['newLine']) && $token['newLine']) ) &&
           in_array($tag, t(Rewriter::$IMPLICIT_UNSPACED_CALL)) )
         ))

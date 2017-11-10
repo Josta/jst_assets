@@ -25,7 +25,7 @@
 %left       YY_CALL_START YY_CALL_END.
 %left       YY_ACCESSOR YY_EXISTENTIAL_ACCESSOR YY_PROTOTYPE.
 
-root(A) ::=                         . { A = yy('Block'); }
+root(A) ::= YY_TERMINATOR           . { A = yy('Block'); }
 root(A) ::= body(B)                 . { A = B; }
 root(A) ::= block(B) YY_TERMINATOR  . { A = B; }
 
@@ -66,9 +66,19 @@ literal(A) ::= YY_JS(B)         . { A = yy('Literal', B); }
 literal(A) ::= YY_REGEX(B)      . { A = yy('Literal', B); }
 literal(A) ::= YY_DEBUGGER(B)   . { A = yy('Literal', B); }
 
+literal(A) ::= YY_UNDEFINED(B) . {
+  $val = yy('Literal', B);
+  $val->is_undefined = true;
+  A = $val;
+}
+
+literal(A) ::= YY_NULL(B) . {
+  $val = yy('Literal', B);
+  A = $val;
+}
+
 literal(A) ::= YY_BOOL(B) . {
   $val = yy('Literal', B);
-  $val->is_undefined = B === 'undefined';
   A = $val;
 }
 
@@ -239,9 +249,10 @@ forBody(A) ::= forStart(B) forSource(C) . { C['own'] = isset(B['own']) ? B['own'
 forStart(A) ::= YY_FOR forVariables(B)        . { A = B; }
 forStart(A) ::= YY_FOR YY_OWN forVariables(B) . { B['own'] = TRUE; A = B; }
 
-forValue(A) ::= identifier(B) . { A = B; }
-forValue(A) ::= array(B)      . { A = yy('Value', B); }
-forValue(A) ::= object(B)     . { A = yy('Value', B); }
+forValue(A) ::= identifier(B)   . { A = B; }
+forValue(A) ::= thisProperty(B) . { A = B; }
+forValue(A) ::= array(B)        . { A = yy('Value', B); }
+forValue(A) ::= object(B)       . { A = yy('Value', B); }
 
 forVariables(A) ::= forValue(B)                       . { A = array(B); }
 forVariables(A) ::= forValue(B) YY_COMMA forValue(C)  . { A = array(B, C); }

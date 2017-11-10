@@ -94,7 +94,8 @@ Installation
 ============
 
 1. Install the extension from TER (or Github)
-2. Configure the extension in the Extension Manager
+2. When installing from Github, you may have to run Composer to build the vendor directory.
+3. Configure the extension in the Extension Manager
 
 
 Asset Pipeline Precompilation
@@ -429,7 +430,7 @@ Further Considerations
 A lot of the functionality provided by this extension depends on the included precompiler PHP libraries.
 Those libraries may not be 100% compatible with the corresponding ``Node.js`` modules. I will try to always
 include up-to-date versions. If I miss one, please give me a hint. The used CoffeScript library unfortunately appears to not be
-maintained any longer, so new language features beyond CoffeScript 1.3.1 probebly won't ever be supported by this extension.
+maintained any longer, so new language features beyond CoffeScript 1.3.1 probably won't ever be supported by this extension.
 
 Also, the important ``Node.js`` tools ``coffeescript-concat`` and ``autoprefixer`` have so far not
 been ported to native PHP. For those, ``JST Assets`` offers rudimentary replacements of my own making that in no way

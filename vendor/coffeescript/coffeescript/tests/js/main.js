@@ -2,30 +2,38 @@
 function init(PHP) {
   var JS = {}, d;
 
-  // Tokenize
-  JS.tokens = CoffeeScript.tokens(PHP.coffee, { rewrite: PHP.rewrite });
+  try {
+    // Tokenize
+    JS.tokens = CoffeeScript.tokens(PHP.coffee, { rewrite: PHP.rewrite });
 
-  // Tokens diff
-  d = JsDiff.diffLines(formatTokens(JS.tokens), formatTokens(PHP.tokens));
+    // Tokens diff
+    d = JsDiff.diffLines(formatTokens(JS.tokens), formatTokens(PHP.tokens));
 
-  $('#tokens .result').innerHTML = formatDiffLines(d);
-  $('#tokens .' + (d.length > 1 || d[0].removed ? 'fail' : 'pass')).style.display = 'block';
+    $('#tokens .result').innerHTML = formatDiffLines(d);
+    var tokenFailed = d.length > 1 || d[0].removed;
+    $('#tokens .' + (tokenFailed ? 'fail' : 'pass')).style.display = 'block';
 
-  // Compile
-  JS.js = CoffeeScript.require['./parser'].parse(JS.tokens).compile();
+    // Compile
+    JS.js = CoffeeScript.require['./parser'].parse(JS.tokens).compile();
 
-  // Code diff
-  d = JsDiff.diffLines(JS.js, PHP.js);
+    // Code diff
+    d = JsDiff.diffLines(JS.js, PHP.js);
 
-  var failed = d.length > 1 || d[0].removed;
+    var codeFailed = d.length > 1 || d[0].removed;
 
-  $('#code .result').innerHTML = formatDiffLines(d);
+    $('#code .result').innerHTML = formatDiffLines(d);
 
-  var result = $('#code .' + (d.length > 1 || d[0].removed ? 'fail' : 'pass'));
-  result.style.display = 'block';
+    var result = $('#code .' + (codeFailed ? 'fail' : 'pass'));
+    result.style.display = 'block';
 
-  if (PHP.error) {
-    result.innerHTML += '<br /><span style="font-weight: normal;">' + PHP.error + '</span>';
+    if (PHP.error) {
+      result.innerHTML += '<br /><span style="font-weight: normal;">' + PHP.error + '</span>';
+    }
+  } catch (e) {
+    window.console && console.error(e)
+  }
+  if (parent.testComplete) {
+	  parent.testComplete(codeFailed, tokenFailed);
   }
 }
 

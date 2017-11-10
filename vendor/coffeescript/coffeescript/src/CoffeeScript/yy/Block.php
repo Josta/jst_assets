@@ -135,6 +135,7 @@ class yy_Block extends yy_Base
   function compile_with_declarations($options)
   {
     $code = $post = '';
+    $i = 0;
 
     foreach ($this->expressions as $i => & $expr)
     {
